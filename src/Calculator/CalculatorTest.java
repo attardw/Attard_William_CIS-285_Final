@@ -19,15 +19,26 @@ private Calculator temp1;
         assertEquals(9, finalTemp, "error in add()");
         assertNotEquals(-2147483647, finalTemp, "error in add()");
         assertNotEquals(2147483647, finalTemp,"error in add()");
+      
         //test 2
-         a = 4;
-    	 b = 5;
-    		temp1 = new Calculator();
-            finalTemp = temp1.add(a, b);
-    		
-            assertEquals(9, finalTemp, "error in add()");
-            assertNotEquals(-2147483647, finalTemp, "error in add()");
-            assertNotEquals(2147483647, finalTemp,"error in add()");
+      a = 2147483646;
+   	  b = 1;
+   		temp1 = new Calculator();
+        finalTemp = temp1.add(a, b);
+   		
+        assertNotEquals(9, finalTemp, "error in add()");
+        assertNotEquals(-2147483647, finalTemp, "error in add()");
+        assertEquals(2147483647, finalTemp,"error in add()");
+        
+      //test 3
+      a = -2147483646;
+      b = -1;
+     	temp1 = new Calculator();
+        finalTemp = temp1.add(a, b);
+     		
+        assertNotEquals(9, finalTemp, "error in add()");
+        assertEquals(-2147483647, finalTemp, "error in add()");
+        assertNotEquals(2147483647, finalTemp,"error in add()");
             
 	}
 
